@@ -1,0 +1,23 @@
+# XC Miner
+
+XC Miner specializes in high-performance desktop silent ASIC Bitcoin miners. All products feature open-source firmware, silent cooling, and plug-and-play setup.
+
+## Products
+- XC Nano: $49, 500 GH/s, 15W, BM1366 chip, ultra-portable USB-C powered
+- XC One: $89, 1.2 TH/s, 22W, BM1368 chip, best value
+- XC Pro: $169, 2.8 TH/s, 55W, BM1370 chip, performance tier
+- XC Ultra: $289, 5.5 TH/s, 105W, BM1372 ×1 chip, flagship
+- XC Max: $499, 11 TH/s, 210W, BM1372 ×2 chip, dual-chip beast
+
+## Key Features
+- Open Source Firmware: ESP32-based, AxeOS compatible, full control over pools/frequency/voltage
+- Whisper-Quiet: All models under 38dB, custom silent fans with intelligent thermal curves
+- Plug & Play: USB-C or DC power, connects via Wi-Fi, no technical background needed
+- Real ASIC Chips: Bitmain BM13 series, up to 40% efficiency improvement over previous generation
+
+## Contact
+- Website: https://xcminer.github.io/xcweb/
+- WeChat: xc_miner_official
+- Telegram: @xc_miner
+- Email: sales@xcminer.com
+- X/Twitter: @xc_miner
