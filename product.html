@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — XC Miner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: { 50: '#eef7ff', 100: '#d9edff', 200: '#bce0ff', 300: '#8eccff', 400: '#57aefe', 500: '#3189fb', 600: '#1a6af1', 700: '#1354de', 800: '#1645b4', 900: '#183d8e', 950: '#132756' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
+            <i class="fa-solid fa-microchip text-white text-sm"></i>
+          </div>
+          <span class="text-xl font-bold tracking-tight">XC Miner</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <button data-lang-switch class="text-sm font-medium text-gray-500 hover:text-brand-600 transition-colors px-3 py-1.5 rounded-lg hover:bg-gray-100">中文</button>
+          <a href="index.html" class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg shadow-brand-200 hover:shadow-brand-300">
+            <i class="fa-solid fa-store text-xs"></i> <span data-i18n="navProducts">Products</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="relative pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-blue-50 pointer-events-none"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="index.html" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-brand-600 transition-colors mb-8" data-i18n="backToProducts">← Back to Products</a>
+
+      <div id="productDetail" class="grid lg:grid-cols-2 gap-12">
+        <!-- Image -->
+        <div class="bg-gray-900 rounded-2xl overflow-hidden flex items-center justify-center min-h-[360px]">
+          <img id="productImg" src="" alt="" class="w-full h-full object-contain p-8" />
+        </div>
+
+        <!-- Info -->
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <span id="productBadge" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+            <div class="flex items-center gap-1.5">
+              <span class="glow-dot"></span>
+              <span class="text-xs text-green-600 font-medium" data-i18n="inStock">In Stock</span>
+            </div>
+          </div>
+          <h1 id="productName" class="text-3xl sm:text-4xl font-extrabold mb-2"></h1>
+          <p id="productTagline" class="text-gray-400 mb-6"></p>
+
+          <div id="productHashrate" class="text-4xl font-extrabold text-gray-900 mb-1"></div>
+          <p id="productSub" class="text-gray-500 mb-8"></p>
+
+          <div class="flex items-baseline gap-2 mb-8">
+            <span id="productPrice" class="text-4xl font-extrabold text-brand-600"></span>
+            <span class="text-sm text-gray-400" data-i18n="starting">starting</span>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mb-8">
+            <button id="buyNowBtn" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-8 py-3.5 rounded-full text-base font-semibold transition-all shadow-lg shadow-brand-200 hover:shadow-brand-300">
+              <i class="fa-solid fa-cart-shopping"></i> <span data-i18n="buyNow">Buy Now</span>
+            </button>
+            <a href="index.html#compare" class="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-6 py-3.5 rounded-full text-sm font-semibold transition-all">
+              <i class="fa-solid fa-table-list"></i> <span data-i18n="navCompare">Compare</span>
+            </a>
+          </div>
+
+          <p id="buyNowDesc" class="text-sm text-gray-400"></p>
+        </div>
+      </div>
+
+      <!-- Specs table -->
+      <div class="mt-16" id="specsSection">
+        <h2 class="text-2xl font-bold mb-6" data-i18n="detailSpecs">Specifications</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 rounded-2xl overflow-hidden">
+          <table id="specsTable" class="sm:col-span-2 lg:col-span-3">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mt-16">
+        <h2 class="text-2xl font-bold mb-6" data-i18n="detailDescription">Product Description</h2>
+        <div class="grid sm:grid-cols-2 gap-8">
+          <div class="prose prose-gray max-w-none">
+            <p id="detailDescP1" class="text-gray-600 leading-relaxed"></p>
+            <p id="detailDescP2" class="text-gray-600 leading-relaxed mt-4"></p>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="font-semibold mb-4" data-i18n="detailInBox">What's in the Box</h3>
+            <ul id="boxItems" class="space-y-2 text-sm text-gray-600"></ul>
+            <hr class="my-4 border-gray-200" />
+            <div class="flex items-center gap-2 text-sm text-brand-600 font-medium">
+              <i class="fa-solid fa-shield-halved"></i> <span data-i18n="detailWarranty">12-month warranty</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2 text-white font-bold text-lg">
+          <div class="w-7 h-7 bg-brand-600 rounded-lg flex items-center justify-center">
+            <i class="fa-solid fa-microchip text-white text-xs"></i>
+          </div>
+          XC Miner
+        </div>
+        <div class="text-xs text-gray-500" data-i18n="footerRights">© 2025 XC Miner. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Payment Coming Soon Modal -->
+  <div id="paymentModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-md w-full mx-4 p-8 text-center shadow-2xl">
+      <div class="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
+        <i class="fa-solid fa-credit-card text-brand-600 text-2xl"></i>
+      </div>
+      <h2 class="text-xl font-bold mb-2" data-i18n="paymentSoon">Online payment is coming soon!</h2>
+      <p class="text-sm text-gray-500 mb-6" data-i18n="paymentSoonDesc">We are currently setting up our payment gateway. In the meantime, please use the contact form or reach us directly to place your order.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <button id="closePaymentModal" class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-colors" data-i18n="paymentClose">Got it</button>
+        <a href="index.html#contact" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-colors" data-i18n="navContact">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+  <script>
+    (function () {
+      var url = new URL(window.location.href);
+      var pid = url.searchParams.get('id');
+
+      var prod = null;
+      for (var i = 0; i < products.length; i++) {
+        if (products[i].id === pid) { prod = products[i]; break; }
+      }
+      if (!prod) prod = products[0];
+
+      var badgeMap = { hot: 'badgeHot', 'new': 'badgeNew', limited: 'badgeLimited' };
+
+      document.title = __('detailTitle', { s: prod.name });
+      document.getElementById('productImg').src = prod.img;
+      document.getElementById('productImg').alt = prod.name;
+      document.getElementById('productName').textContent = prod.name;
+      document.getElementById('productTagline').textContent = __(prod.id.charAt(0).toUpperCase() + prod.id.slice(1));
+      document.getElementById('productHashrate').textContent = prod.hashrate;
+      document.getElementById('productSub').textContent = prod.power + ' · ' + prod.efficiency;
+      document.getElementById('productPrice').textContent = prod.price;
+      document.getElementById('buyNowDesc').innerHTML = __('buyNowDesc', { s: prod.name });
+      document.getElementById('detailDescP1').innerHTML = __('detailDescP1', { s: prod.name, c: prod.chip });
+      document.getElementById('detailDescP2').innerHTML = __('detailDescP2');
+
+      if (prod.badge && badgeMap[prod.badge]) {
+        var badge = document.getElementById('productBadge');
+        badge.textContent = __(badgeMap[prod.badge]);
+        badge.classList.remove('hidden');
+      }
+
+      var specsTable = document.querySelector('#specsTable tbody');
+      specKeys.forEach(function (sk) {
+        var val = prod[sk.key];
+        if (sk.key === 'cooling' || sk.key === 'psu') val = __(val) || val;
+        var row = document.createElement('tr');
+        row.className = 'border-b border-gray-100';
+        row.innerHTML =
+          '<td class="px-4 py-3 bg-white text-sm font-medium text-gray-500 w-40">' + __(sk.labelKey) + '</td>' +
+          '<td class="px-4 py-3 bg-white text-sm font-semibold text-gray-900">' + val + '</td>';
+        specsTable.appendChild(row);
+      });
+
+      var boxItems = document.getElementById('boxItems');
+      var items = [
+        __('detailBoxItem1', { s: prod.name }),
+        __('detailBoxItem2'),
+        __('detailBoxItem3'),
+        __('detailBoxItem4')
+      ];
+      items.forEach(function (item) {
+        var li = document.createElement('li');
+        li.innerHTML = '<i class="fa-solid fa-check text-green-500 mr-2"></i>' + item;
+        boxItems.appendChild(li);
+      });
+
+      function updatePageText() {
+        document.title = __('detailTitle', { s: prod.name });
+        document.getElementById('productTagline').textContent = __(prod.id.charAt(0).toUpperCase() + prod.id.slice(1));
+        document.getElementById('buyNowDesc').innerHTML = __('buyNowDesc', { s: prod.name });
+        document.getElementById('detailDescP1').innerHTML = __('detailDescP1', { s: prod.name, c: prod.chip });
+        document.getElementById('detailDescP2').innerHTML = __('detailDescP2');
+        if (prod.badge && badgeMap[prod.badge]) {
+          document.getElementById('productBadge').textContent = __(badgeMap[prod.badge]);
+        }
+        var rows = specsTable.querySelectorAll('tr');
+        rows.forEach(function (row, idx) {
+          if (specKeys[idx]) {
+            row.children[0].textContent = __(specKeys[idx].labelKey);
+          }
+        });
+        boxItems.innerHTML = '';
+        var items2 = [
+          __('detailBoxItem1', { s: prod.name }),
+          __('detailBoxItem2'),
+          __('detailBoxItem3'),
+          __('detailBoxItem4')
+        ];
+        items2.forEach(function (item) {
+          var li = document.createElement('li');
+          li.innerHTML = '<i class="fa-solid fa-check text-green-500 mr-2"></i>' + item;
+          boxItems.appendChild(li);
+        });
+      }
+
+      window.addEventListener('xclangchange', updatePageText);
+
+      var buyNowBtn = document.getElementById('buyNowBtn');
+      var paymentModal = document.getElementById('paymentModal');
+      var closeBtn = document.getElementById('closePaymentModal');
+
+      buyNowBtn.addEventListener('click', function () {
+        paymentModal.classList.remove('hidden');
+        paymentModal.classList.add('flex');
+      });
+
+      closeBtn.addEventListener('click', function () {
+        paymentModal.classList.add('hidden');
+        paymentModal.classList.remove('flex');
+      });
+
+      paymentModal.addEventListener('click', function (e) {
+        if (e.target === paymentModal) {
+          paymentModal.classList.add('hidden');
+          paymentModal.classList.remove('flex');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
